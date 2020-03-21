@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
-const DeviceGalleryItem = ({ index, title, noOfPhotos }) => {
+const EachAlbum = ({ index, title, noOfItems, isShared }) => {
   return (
     <View style={[styles.container, { marginRight: index === 3 ? 10 : 0 }]}>
       <View style={styles.imageWrapper}>
@@ -9,9 +9,14 @@ const DeviceGalleryItem = ({ index, title, noOfPhotos }) => {
           style={styles.image}
           source={require("./../../../assets/People/4.jpg")}
         />
-        <Text style={styles.noOfPhotos}>+{noOfPhotos}</Text>
+        <Text style={styles.noOfPhotos}>+{noOfItems}</Text>
       </View>
-      <Text style={styles.title}>{title}</Text>
+      <View>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.content}>
+          {noOfItems} Items {"  "} {isShared && "Shared"}
+        </Text>
+      </View>
     </View>
   );
 };
@@ -22,8 +27,8 @@ const styles = StyleSheet.create({
     position: "relative"
   },
   image: {
-    height: 150,
-    width: 130,
+    height: 120,
+    width: 200,
     resizeMode: "cover",
     borderRadius: 5
   },
@@ -38,7 +43,12 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "lato-bold",
     margin: 10
+  },
+  content: {
+    color: "#999",
+    fontFamily: "lato",
+    marginTop: -5
   }
 });
 
-export default DeviceGalleryItem;
+export default EachAlbum;

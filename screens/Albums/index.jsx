@@ -3,6 +3,8 @@ import { View, StyleSheet, StatusBar, ScrollView, Text } from "react-native";
 import SearchBar from "./SearchBar.jsx";
 import FourImageGrid from "./FourImageGrid";
 import DeviceGalleryItem from "./DeviceGalleryItem/index.jsx";
+import CreateAlbum from "./CreateAlbum";
+import EachAlbum from "./EachAlbum";
 
 const Albums = () => {
   return (
@@ -25,6 +27,24 @@ const Albums = () => {
           <DeviceGalleryItem title="Shared" index={1} noOfPhotos={12} />
           <DeviceGalleryItem title="Old Shots" index={2} noOfPhotos={22} />
           <DeviceGalleryItem title="New Shots" index={3} noOfPhotos={211} />
+        </ScrollView>
+      </View>
+      <View style={styles.deviceGalleryContainer}>
+        <Text style={styles.sectionTitle}>ALBUMS</Text>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <CreateAlbum />
+          <EachAlbum
+            index={0}
+            isShared={true}
+            noOfItems={259}
+            title="Friends & Family"
+          />
+          <EachAlbum
+            index={1}
+            isShared={false}
+            noOfItems={5}
+            title="Vacation"
+          />
         </ScrollView>
       </View>
     </ScrollView>
