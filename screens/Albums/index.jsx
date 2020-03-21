@@ -1,8 +1,24 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import { View, StyleSheet, StatusBar, ScrollView } from "react-native";
+import SearchBar from "./SearchBar.jsx";
+import FourImageGrid from "./FourImageGrid";
 
 const Albums = () => {
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <SearchBar />
+      {/* <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled={true}
+      >
+        <FourImageGrid />
+        <FourImageGrid />
+        <FourImageGrid />
+        <FourImageGrid />
+      </ScrollView> */}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -11,7 +27,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#fff",
-    paddingTop: StatusBar.currentHeight > 24 ? StatusBar.currentHeight : 0
+    paddingTop: StatusBar.currentHeight > 24 ? StatusBar.currentHeight : 0,
+    paddingLeft: 10,
+    paddingRight: 10
   }
 });
 
